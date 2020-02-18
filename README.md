@@ -1,3 +1,12 @@
+If you want a shared library, and call the function from python, you can do like this.
+On Linux or MacOS:
+     everything is fine.
+On windows:
+     you need to change line53 in "efanna_graph/include/efanna2e/util.h" ,
+  from: `data_new = (float*)memalign(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));`
+  to: `data_new = (float*)_aligned_malloc(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));`
+
+
 EFANNA\_graph: an Extremely Fast Approximate Nearest Neighbor graph construction Algorithm framework 
 ============
 EFANNA is a ***flexible*** and ***efficient*** library for approximate nearest neighbor search (ANN search) on large scale data. It implements the algorithms of our paper [EFANNA : Extremely Fast Approximate Nearest Neighbor Search Algorithm Based on kNN Graph](http://arxiv.org/abs/1609.07228).    
