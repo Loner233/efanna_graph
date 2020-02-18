@@ -1,11 +1,12 @@
 If you want a shared library, and call the function from python, you can do like this.
-On Linux or MacOS:
-     everything is fine.
-On windows:
-     you need to change line53 in "efanna_graph/include/efanna2e/util.h" ,
-  from: `data_new = (float*)memalign(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));`
-  to: `data_new = (float*)_aligned_malloc(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));`
 
+On Linux or MacOS:everything is fine.
+
+On windows: you need to change line53 in "efanna_graph/include/efanna2e/util.h"
+
+   from: ```cpp data_new = (float*)memalign(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));```
+
+   to: ```cpp data_new = (float*)_aligned_malloc(DATA_ALIGN_FACTOR * 4, point_num * new_dim * sizeof(float));```
 
 EFANNA\_graph: an Extremely Fast Approximate Nearest Neighbor graph construction Algorithm framework 
 ============
